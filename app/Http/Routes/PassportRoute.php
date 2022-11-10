@@ -19,6 +19,8 @@ class PassportRoute
             $router->post('/auth/loginWithMailLink', 'Passport\\AuthController@loginWithMailLink');
             // Comm
             $router->post('/comm/sendEmailVerify', 'Passport\\CommController@sendEmailVerify');
+            $router->post('/comm/sendEmailVerifyRegister', 'Passport\\CommController@sendEmailVerifyRegister');
+            $router->post('/comm/sendEmailVerifyForget', 'Passport\\CommController@sendEmailVerifyForget');
             $router->post('/comm/pv', 'Passport\\CommController@pv');
             $router->get ('/comm/config', 'Guest\\CommController@config');                                              // TODO:REMOVE:1.7.0
         });

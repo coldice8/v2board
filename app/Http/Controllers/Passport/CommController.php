@@ -11,12 +11,31 @@ use App\Utils\Helper;
 use Illuminate\Support\Facades\Cache;
 use App\Jobs\SendEmailJob;
 use App\Models\InviteCode;
+use App\Models\User;
 use App\Utils\Dict;
 use App\Utils\CacheKey;
 use ReCaptcha\ReCaptcha;
 
 class CommController extends Controller
 {
+    public function sendEmailVerifyRegister(CommSendEmailVerify $request)
+    {
+        $user = User::where('email', $request->input('email'))->first();
+        if ($user) {
+            abort(500, __('This email has been registered in the system'));
+        }
+        sendEmailVerify($request);
+    }
+
+    public function sendEmailVerifyForget(CommSendEmailVerify $request)
+    {
+        $user = User::where('email', $request->input('email'))->first();
+        if (!$user) {
+            abort(500, __('This email is not registered in the system'));
+        }
+        sendEmailVerify($request);
+    }
+
     private function isEmailVerify()
     {
         return response([

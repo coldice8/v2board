@@ -63,6 +63,7 @@
     "Your account has been suspended": "该账户已被停止使用",
     "Token error": "令牌有误",
     "This email is not registered in the system": "该邮箱不存在系统中",
+    "This email has been registered in the system": "该邮箱已在系统中注册",
     "Email verification code has been sent, please request again later": "验证码已发送，请过一会儿再请求",
     "Email verification code": "邮箱验证码",
     "Plan ID cannot be empty": "套餐 ID 不能为空",
